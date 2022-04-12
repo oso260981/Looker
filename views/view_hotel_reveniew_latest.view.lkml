@@ -90,6 +90,16 @@ view: view_hotel_reveniew_latest {
     sql: ${last_year_price_amount} ;;
   }
 
+  measure: sum_revenue {
+    type: sum
+    sql: ${revenue} ;;
+  }
+
+  measure: sum_last_year_revenue {
+    type: sum
+    sql: ${last_year_revenue} ;;
+  }
+
   dimension: last_year_revenue {
     type: number
     sql: ${TABLE}.Last_Year_Revenue ;;
