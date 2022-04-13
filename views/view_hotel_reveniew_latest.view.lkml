@@ -17,9 +17,11 @@ view: view_hotel_reveniew_latest {
   }
 
   measure: average_adr {
+    label: "ADR"
     type: average
     sql: ${adr};;
-    value_format:"$#.00;($#.00)"
+     value_format: "$#,##0"
+    drill_fields: [detail*]
   }
 
   dimension: ari {
@@ -31,6 +33,7 @@ view: view_hotel_reveniew_latest {
     type: average
     sql: ${ari};;
     value_format:"$#.00;($#.00)"
+    drill_fields: [detail*]
   }
 
   dimension: available_rooms_count {
@@ -114,6 +117,7 @@ view: view_hotel_reveniew_latest {
     type: sum
     sql: ${ebitda} ;;
     value_format: "$#,##0"
+    drill_fields: [detail*]
   }
 
 
@@ -129,11 +133,13 @@ view: view_hotel_reveniew_latest {
   measure: total_last_year_price_amount {
     type: sum
     sql: ${last_year_price_amount} ;;
+    drill_fields: [detail*]
   }
 
   measure: average_last_year_price_amount {
     type: average
     sql: ${last_year_price_amount} ;;
+    drill_fields: [detail*]
   }
 
   measure: sum_revenue {
@@ -141,12 +147,14 @@ view: view_hotel_reveniew_latest {
     type: sum
     sql: ${revenue} ;;
     value_format: "$#,##0"
+    drill_fields: [detail*]
   }
 
   measure: sum_last_year_revenue {
     type: sum
     sql: ${last_year_revenue} ;;
     value_format: "$#,##0"
+    drill_fields: [detail*]
   }
 
   dimension: last_year_revenue {
@@ -191,6 +199,7 @@ view: view_hotel_reveniew_latest {
     type: average
     sql: ${occ} ;;
     value_format: "0.00%"
+    drill_fields: [detail*]
   }
 
   dimension: price {
@@ -273,9 +282,11 @@ view: view_hotel_reveniew_latest {
   }
 
   measure: average_rev_par {
+    label: "Rev par"
     type: average
     sql: ${rev_par};;
-    value_format:"$#.00;($#.00)"
+    value_format: "$#,##0"
+    drill_fields: [detail*]
   }
 
   dimension: revenue {
@@ -353,4 +364,16 @@ view: view_hotel_reveniew_latest {
     type: count
     drill_fields: [room.room_id]
   }
+
+  set: detail {
+    fields: [
+      category
+
+    ]
+  }
+
+
+
+
+
 }
