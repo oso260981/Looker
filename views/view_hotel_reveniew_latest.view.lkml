@@ -16,9 +16,21 @@ view: view_hotel_reveniew_latest {
     sql: ${TABLE}.ADR ;;
   }
 
+  measure: average_adr {
+    type: average
+    sql: ${adr};;
+    value_format:"$#.00;($#.00)"
+  }
+
   dimension: ari {
     type: number
     sql: ${TABLE}.ARI ;;
+  }
+
+  measure: average_ari {
+    type: average
+    sql: ${ari};;
+    value_format:"$#.00;($#.00)"
   }
 
   dimension: available_rooms_count {
@@ -29,6 +41,11 @@ view: view_hotel_reveniew_latest {
   dimension: booked_id {
     type: number
     sql: ${TABLE}.Booked_ID ;;
+  }
+
+  measure: sum_booked_id {
+    type: sum
+    sql: ${booked_id} ;;
   }
 
   dimension: booked_is_active {
@@ -56,6 +73,27 @@ view: view_hotel_reveniew_latest {
     sql: ${TABLE}.CheckInTime ;;
   }
 
+
+  dimension_group: check_in_time {
+
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.CheckInTime ;;
+  }
+
+
+
+
+
   dimension: check_out_time {
     type: string
     sql: ${TABLE}.CheckOutTime ;;
@@ -70,6 +108,14 @@ view: view_hotel_reveniew_latest {
     type: number
     sql: ${TABLE}.EBITDA ;;
   }
+
+  measure: total_ebitda {
+    label: "ebitda"
+    type: sum
+    sql: ${ebitda} ;;
+    value_format: "$#,##0"
+  }
+
 
   dimension: last_year_price_amount {
     type: number
@@ -91,18 +137,22 @@ view: view_hotel_reveniew_latest {
   }
 
   measure: sum_revenue {
+   label: "Revenue"
     type: sum
     sql: ${revenue} ;;
+    value_format: "$#,##0"
   }
 
   measure: sum_last_year_revenue {
     type: sum
     sql: ${last_year_revenue} ;;
+    value_format: "$#,##0"
   }
 
   dimension: last_year_revenue {
     type: number
     sql: ${TABLE}.Last_Year_Revenue ;;
+
   }
 
   dimension: lead {
@@ -135,6 +185,14 @@ view: view_hotel_reveniew_latest {
     sql: ${TABLE}.OCC ;;
   }
 
+
+  measure: total_occ {
+    label: "OCC"
+    type: average
+    sql: ${occ} ;;
+    value_format: "0.00%"
+  }
+
   dimension: price {
     type: number
     sql: ${TABLE}.Price ;;
@@ -150,6 +208,55 @@ view: view_hotel_reveniew_latest {
     sql: ${TABLE}.Region ;;
   }
 
+
+  dimension: field_name_1 {
+    type: string
+    sql: case when ${TABLE}.Region="United States" then "37.09024"
+              when ${TABLE}.Region="South Africa" then "-30.559482"
+              when ${TABLE}.Region="France" then "46.227638"
+              when ${TABLE}.Region="Zimbabwe" then "30.0000000"
+              when ${TABLE}.Region="Australia" then "-25.274398"
+              when ${TABLE}.Region="Canada" then "56.130366"
+              when ${TABLE}.Region="Nigeria" then "9.081999"
+              when ${TABLE}.Region="Argentina" then "-38.416097"
+              when ${TABLE}.Region="Brazil" then "-14.235004"
+              when ${TABLE}.Region="Mexico" then "23.634501"
+              when ${TABLE}.Region="Austria" then "47.516231"
+              when ${TABLE}.Region="Finland" then "61.92411"
+
+
+
+    else "0" end ;;
+  }
+
+  dimension: field_name_2 {
+    type: string
+     sql: case when ${TABLE}.Region="United States" then "-95.712891"
+               when ${TABLE}.Region="South Africa" then "22.937506"
+               when ${TABLE}.Region="France" then "2.213749"
+               when ${TABLE}.Region="Zimbabwe" then "-20.0000000"
+               when ${TABLE}.Region="Australia" then "133.775136"
+               when ${TABLE}.Region="Canada" then "-106.346771"
+               when ${TABLE}.Region="Nigeria" then "8.675277"
+               when ${TABLE}.Region="Argentina" then "-63.616672"
+               when ${TABLE}.Region="Brazil" then "-51.92528"
+               when ${TABLE}.Region="Mexico" then "-102.552784"
+               when ${TABLE}.Region="Austria" then "14.550072"
+               when ${TABLE}.Region="Finland" then "25.748151"
+
+
+    else "0" end ;;
+  }
+
+
+
+  dimension: map {
+    type: location
+    sql_latitude:${field_name_1} ;;
+    sql_longitude:${field_name_2} ;;
+  }
+
+
   dimension: region_id {
     type: number
     sql: ${TABLE}.RegionID ;;
@@ -161,8 +268,14 @@ view: view_hotel_reveniew_latest {
   }
 
   dimension: rev_par {
-    type: string
-    sql: ${TABLE}.RevPAR ;;
+    type: number
+    sql: (case when ${TABLE}.RevPAR ="NULL" then 0 else CAST(${TABLE}.RevPAR as FLOAT64) end) ;;
+  }
+
+  measure: average_rev_par {
+    type: average
+    sql: ${rev_par};;
+    value_format:"$#.00;($#.00)"
   }
 
   dimension: revenue {
@@ -171,8 +284,14 @@ view: view_hotel_reveniew_latest {
   }
 
   dimension: rgi {
-    type: string
-    sql: ${TABLE}.RGI ;;
+    type: number
+    sql: (case when ${TABLE}.RGI ="NULL" then 0 else CAST(${TABLE}.RGI as FLOAT64) end) ;;
+  }
+
+  measure: average_rgi {
+    type: average
+    sql: ${rgi};;
+    value_format:"$#.00;($#.00)"
   }
 
   dimension: room_id {
@@ -220,6 +339,15 @@ view: view_hotel_reveniew_latest {
     type: number
     sql: ${TABLE}.TransactionCharges ;;
   }
+
+  measure: average_transaction_charges {
+    type: average
+    sql: ${transaction_charges} ;;
+    value_format:"$#.00;($#.00)"
+  }
+
+
+
 
   measure: count {
     type: count
