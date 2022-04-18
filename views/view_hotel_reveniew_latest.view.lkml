@@ -218,6 +218,27 @@ view: view_hotel_reveniew_latest {
   }
 
 
+  dimension: usuario {
+    type: string
+    sql: case when ${TABLE}.Region="United States" then "israel"
+              when ${TABLE}.Region="South Africa" then "Angeles"
+              when ${TABLE}.Region="France" then "Angeles"
+              when ${TABLE}.Region="Zimbabwe" then "israel"
+              when ${TABLE}.Region="Australia" then "-Angeles"
+              when ${TABLE}.Region="Canada" then "israel"
+              when ${TABLE}.Region="Nigeria" then "Angeles"
+              when ${TABLE}.Region="Argentina" then "-Angeles"
+              when ${TABLE}.Region="Brazil" then "Angeles"
+              when ${TABLE}.Region="Mexico" then "Angeles"
+              when ${TABLE}.Region="Austria" then "israel"
+              when ${TABLE}.Region="Finland" then "israel"
+
+
+
+      else "0" end ;;
+  }
+
+
   dimension: field_name_1 {
     type: string
     sql: case when ${TABLE}.Region="United States" then "37.09024"
