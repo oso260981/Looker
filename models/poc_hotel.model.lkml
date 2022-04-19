@@ -12,14 +12,18 @@ datagroup: poc_hotel_default_datagroup {
 }
 
 
-#datagroup: revenue {
+datagroup: revenue {
 
-#  max_cache_age: "24 hours"
-#  sql_trigger: SELECT * FROM POC.VIEW_HOTEL_REVENIEW_LATEST ;;
-#  interval_trigger: "12 hours"
-#  label: "desired label"
-#  description: "description string"
-#}
+  max_cache_age: "24 hours"
+  sql_trigger: select * from (
+SELECT Region,sum(Price) Price FROM `eon-internal-bigquery.POC.VIEW_HOTEL_REVENIEW_LATEST`
+where Region='United States'
+group by Region)
+where Price <= 11548 ;;
+  interval_trigger: "12 hours"
+  label: "desired label"
+  description: "description string"
+}
 
 
 
