@@ -389,6 +389,39 @@ view: view_hotel_reveniew_latest {
   set: detail {
     fields: [
       category
+      ,adr
+,ari
+,available_rooms_count
+,booked_id
+,booked_is_active
+,category
+,category_id
+,category_isactive
+,check_in_time
+,check_out_time
+,day_difference
+,ebitda
+,last_year_price_amount
+,lead
+,lead_id
+,lead_isactive
+,maintenance_charges
+,no_of_hours
+,occ
+,price
+,price_amount
+,region
+,region_isactive
+,rev_par
+,revenue
+,rgi
+,room_id
+,room_is_active
+,rooms_sold
+,status
+,total_rooms
+,total_rooms_sold
+,transaction_charges
 
     ]
   }
