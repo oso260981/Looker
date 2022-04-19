@@ -19,7 +19,7 @@ datagroup: revenue {
 SELECT Region,sum(Price) Price FROM `eon-internal-bigquery.POC.VIEW_HOTEL_REVENIEW_LATEST`
 where Region='United States'
 group by Region)
-where Price <= 11548 ;;
+where Price > 11548 ;;
   interval_trigger: "12 hours"
   label: "desired label"
   description: "description string"
