@@ -8,7 +8,7 @@ include: "/views/**/*.view"
 # use the Quick Help panel on the right to see documentation.
 
 datagroup: poc_hotel_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
@@ -102,6 +102,9 @@ explore: test_data {
 }
 
 explore: view_hotel_reveniew_latest {
+
+
+
   join: room {
     type: left_outer
     sql_on: ${view_hotel_reveniew_latest.room_id} = ${room.room_id} ;;
