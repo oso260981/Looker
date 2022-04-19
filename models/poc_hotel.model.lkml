@@ -6,29 +6,25 @@ include: "/views/**/*.view"
 
 # Datagroups define a caching policy for an Explore. To learn more,
 # use the Quick Help panel on the right to see documentation.
-
-#datagroup: poc_hotel_default_datagroup {
+datagroup: poc_hotel_default_datagroup {
  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-# max_cache_age: "1 hour"
-#}
-
-
-datagroup: revenue {
-
-  max_cache_age: "24 hours"
-  sql_trigger: SELECT * FROM POC.VIEW_HOTEL_REVENIEW_LATEST ;;
-  interval_trigger: "12 hours"
-  label: "desired label"
-  description: "description string"
-
-
-
+ max_cache_age: "1 hour"
 }
 
 
+#datagroup: revenue {
+
+#  max_cache_age: "24 hours"
+#  sql_trigger: SELECT * FROM POC.VIEW_HOTEL_REVENIEW_LATEST ;;
+#  interval_trigger: "12 hours"
+#  label: "desired label"
+#  description: "description string"
+#}
 
 
-persist_with: revenue
+
+
+persist_with: poc_hotel_default_datagroup
 
 # Explores allow you to join together different views (database tables) based on the
 # relationships between fields. By joining a view into an Explore, you make those
