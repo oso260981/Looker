@@ -16,7 +16,7 @@ include: "/views/**/*.view"
 datagroup: revenue {
 
   max_cache_age: "24 hours"
-  sql_trigger: SELECT * FROM view_hotel_reveniew_latest ;;
+  sql_trigger: SELECT * FROM POC.VIEW_HOTEL_REVENIEW_LATEST ;;
   interval_trigger: "12 hours"
   label: "desired label"
   description: "description string"
