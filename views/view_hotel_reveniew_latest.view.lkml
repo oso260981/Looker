@@ -44,11 +44,13 @@ view: view_hotel_reveniew_latest {
   dimension: booked_id {
     type: number
     sql: ${TABLE}.Booked_ID ;;
+    drill_fields: [detail*]
   }
 
   measure: sum_booked_id {
     type: sum
     sql: ${booked_id} ;;
+    drill_fields: [detail*]
   }
 
   dimension: booked_is_active {
