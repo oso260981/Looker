@@ -318,12 +318,15 @@ view: view_hotel_reveniew_latest {
   dimension: rgi {
     type: number
     sql: (case when ${TABLE}.RGI ="NULL" then 0 else CAST(${TABLE}.RGI as FLOAT64) end) ;;
+    drill_fields: [detail*]
+
   }
 
   measure: average_rgi {
     type: average
     sql: ${rgi};;
     value_format:"$#.00;($#.00)"
+    drill_fields: [detail*]
   }
 
   dimension: room_id {
