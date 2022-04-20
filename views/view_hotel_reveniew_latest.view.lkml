@@ -284,6 +284,7 @@ view: view_hotel_reveniew_latest {
     type: location
     sql_latitude:${field_name_1} ;;
     sql_longitude:${field_name_2} ;;
+    drill_fields: [detail*]
   }
 
 
@@ -318,7 +319,7 @@ view: view_hotel_reveniew_latest {
   dimension: rgi {
     type: number
     sql: (case when ${TABLE}.RGI ="NULL" then 0 else CAST(${TABLE}.RGI as FLOAT64) end) ;;
-    drill_fields: [detail*]
+
 
   }
 
@@ -326,7 +327,7 @@ view: view_hotel_reveniew_latest {
     type: average
     sql: ${rgi};;
     value_format:"$#.00;($#.00)"
-    drill_fields: [detail*]
+
   }
 
   dimension: room_id {
