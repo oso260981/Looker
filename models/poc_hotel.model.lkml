@@ -129,9 +129,14 @@ explore: view_hotel_reveniew_latest {
 }
 
 explore: view_hotel_reveniew {
-  join: room {
+ # join: room {
+  #  type: left_outer
+  #  sql_on: ${view_hotel_reveniew.room_id} = ${room.room_id} ;;
+  #  relationship: many_to_one
+  #}
+  join: sql_runner_query {
     type: left_outer
-    sql_on: ${view_hotel_reveniew.room_id} = ${room.room_id} ;;
+    sql_on: ${view_hotel_reveniew.region_id} = ${sql_runner_query.region_id} ;;
     relationship: many_to_one
   }
 }
