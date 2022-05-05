@@ -4,6 +4,20 @@ view: sql_runner_query {
       ;;
   }
 
+
+
+  dimension: region {
+    type: number
+    sql: case when ${TABLE}.CUENTA_CONTABLE="ENERGIA ELECTRICA" then 1
+              when ${TABLE}.CUENTA_CONTABLE="CUOTAS IMSS" then 2
+              when ${TABLE}.CUENTA_CONTABLE="HONORARIOS PERSONAS MORALES" then 3
+
+
+
+
+      else 4 end ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
