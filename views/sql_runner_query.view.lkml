@@ -6,7 +6,7 @@ view: sql_runner_query {
 
 
 
-  dimension: region {
+  dimension: region_id {
     type: number
     sql: case when ${TABLE}.CUENTA_CONTABLE="ENERGIA ELECTRICA" then 1
               when ${TABLE}.CUENTA_CONTABLE="CUOTAS IMSS" then 2
