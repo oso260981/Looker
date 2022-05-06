@@ -385,6 +385,13 @@ view: view_hotel_reveniew_latest {
   }
 
 
+  measure: porcont {
+    type: number
+    sql: ${count}/1000 ;;
+
+  }
+
+
 
 
   measure: count {
