@@ -1,6 +1,7 @@
 # Define the database connection to be used for this model.
 connection: "hotel"
 
+
 # include all the views
 include: "/views/**/*.view"
 
