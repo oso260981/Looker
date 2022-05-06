@@ -1,4 +1,4 @@
-connection: "hoteles"
+
 
 view: region_hotel_sq2016 {
   derived_table: {
