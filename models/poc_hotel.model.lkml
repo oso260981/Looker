@@ -128,24 +128,7 @@ explore: view_hotel_reveniew_latest {
   #  relationship: many_to_one
   #}
 
-  join: sql_runner_query {
-    type: left_outer
-    sql_on: ${view_hotel_reveniew_latest.region_id} = ${sql_runner_query.region_id} ;;
-    relationship: many_to_one
-  }
 
-  join: emergys_categoria {
-    type: left_outer
-    sql_on: ${view_hotel_reveniew_latest.region_id} = ${emergys_categoria.region_id} ;;
-    relationship: many_to_one
-  }
-
-
-  join: region_hotel_sq2016 {
-    type: left_outer
-    sql_on: ${view_hotel_reveniew_latest.region_id} = ${region_hotel_sq2016.region_id} ;;
-    relationship: many_to_one
-  }
 
 
 

@@ -61,6 +61,13 @@ view: view_hotel_reveniew_latest {
   dimension: category {
     type: string
     sql: ${TABLE}.Category ;;
+
+    link: {
+      label: "desired label name"
+      url: "desired_url"
+      icon_url : "url_of_an_image_file"
+    }
+
   }
 
   dimension: category_id {
