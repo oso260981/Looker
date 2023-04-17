@@ -13,6 +13,8 @@ datagroup: poc_hotel_default_datagroup {
 }
 
 
+persist_with: poc_hotel_default_datagroup
+
 datagroup: revenue {
 
   max_cache_age: "1 hours"

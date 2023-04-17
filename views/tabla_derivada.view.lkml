@@ -1,7 +1,7 @@
 view: tabla_derivada {
   derived_table: {
-    persist_for: "1 hour"
-    sql: SELECT * FROM `eon-internal-bigquery.POC.VIEW_HOTEL_REVENIEW_LATEST` limit 10   ;;
+persist_for: "1 hour"
+    sql: SELECT * FROM `eon-internal-bigquery.POC.VIEW_HOTEL_REVENIEW_LATEST`   ;;
   }
 
   measure: count {
