@@ -150,3 +150,4 @@ explore: view_hotel_reveniew {
 
 explore: status_details {}
 explore: sql_runner_query {}
+explore: tabla_derivada {}
