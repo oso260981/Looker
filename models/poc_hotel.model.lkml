@@ -120,6 +120,8 @@ explore: test_data {
   }
 }
 
+explore: telefono {}
+
 explore: view_hotel_reveniew_latest {
 
 
