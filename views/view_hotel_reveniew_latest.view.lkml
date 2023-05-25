@@ -62,7 +62,7 @@ view: view_hotel_reveniew_latest {
     type: string
     sql: ${TABLE}.Category ;;
 
-
+   # required_access_grants: [departamento]
 
   }
 

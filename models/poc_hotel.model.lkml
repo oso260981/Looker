@@ -13,6 +13,12 @@ datagroup: poc_hotel_default_datagroup {
 }
 
 
+#access_grant: departamento {
+#  user_attribute: department
+#  allowed_values: [ "finance" ]
+#}
+
+
 persist_with: poc_hotel_default_datagroup
 
 datagroup: revenue {
@@ -124,7 +130,10 @@ explore: telefono {}
 
 explore: view_hotel_reveniew_latest {
 
-
+  access_filter: {
+   field: view_hotel_reveniew_latest.category
+   user_attribute: categoria
+  }
 
   #join: room {
   #  type: left_outer
