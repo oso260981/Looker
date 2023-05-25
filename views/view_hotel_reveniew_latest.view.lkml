@@ -395,6 +395,59 @@ view: view_hotel_reveniew_latest {
   }
 
 
+  measure: info_icono_a{
+
+    group_label:"info iconos"
+    type:sum
+    sql:0;;
+
+    drill_fields:[informacion_dash]
+    html:
+
+    <a href="#drillmenu" target="_self">
+      <img src="https://png.pngtree.com/png-clipart/20190613/original/pngtree-information-icon-png-image_3581490.jpg" style="width:2em;height:2em;pedding:1.4em 0.7em 0.5em 0.5em">
+    </a>;;
+
+
+  }
+
+
+  measure: informacion_dash{
+    group_label:"info iconos"
+    label: ""
+    type: string
+    sql: DISTINCT '';;
+    html:
+
+    <div styles="
+            display: border-box;
+            vertical-align: top;
+            border: 1px solid #060606;
+            height: 50vh;
+            width: 98%;
+            border-radius: 4px;
+            background-color: #FAFAF4;
+            text-align: center;
+            font-size: 18px;
+            font-family: PT Sans;
+            margin: 26px auto;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            overflow: auto;
+  ">
+<div style=" font-weight: 600">How to use this dashboard:</div>
+   <div style="padding: 1.4em;">
+
+    <div style="">
+        sadasdasdasdasdsadsadsadasdas
+    </div>
+   </div>
+</div>
+
+    ;;
+  }
+
+
 
 
   measure: count {
@@ -404,7 +457,8 @@ view: view_hotel_reveniew_latest {
 
   set: detail {
     fields: [
-      category
+      informacion_dash
+      ,category
       ,adr
 ,ari
 ,available_rooms_count
