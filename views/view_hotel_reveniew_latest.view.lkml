@@ -436,10 +436,11 @@ view: view_hotel_reveniew_latest {
             overflow: auto;
   ">
 <div style=" font-weight: 600">How to use this dashboard:</div>
-   <div style="padding: 1.4em;">
+   <div style="padding: 1em;">
 
     <div style="">
-        sadasdasdasdasdsadsadsadasdas
+        Revenue <\br>
+        El revenue es la venta del producto adecuado al cliente adecuado, en el momento adecuado, al precio correcto y en el canal correcto.
     </div>
    </div>
 </div>

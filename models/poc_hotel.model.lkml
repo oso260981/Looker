@@ -130,10 +130,10 @@ explore: telefono {}
 
 explore: view_hotel_reveniew_latest {
 
- # access_filter: {
-#   field: view_hotel_reveniew_latest.category
-#   user_attribute: categoria
-#  }
+  access_filter: {
+   field: view_hotel_reveniew_latest.category
+  user_attribute: categoria
+  }
 
   #join: room {
   #  type: left_outer
