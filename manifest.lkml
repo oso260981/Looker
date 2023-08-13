@@ -1,9 +1,10 @@
-project_name: "poc_hotel"
+project_name: "helloword"
 
 application: helloword {
   label: "helloword"
   url: "https://localhost:8080/bundle.js"
+  # file: "bundle.js
   entitlements: {
-    core_api_methods: ["me"]
+    core_api_methods: ["me"] #Add more entitlements here as you develop new functionality
   }
 }
